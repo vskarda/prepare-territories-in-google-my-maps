@@ -4,7 +4,7 @@ Step-by-step help for preparing JW congregation territories using Google My Maps
 
 ## Overview
 
-The goal is to create a single master map in Google My Maps, split it into individual territory CSV files, import each territory back into Google My Maps as its own map, and collect shareable links to those maps.
+The goal is to create a single master map in Google My Maps, split it into separate CSV files for each territory, import each territory back into Google My Maps as its own map, and collect shareable links to those maps.
 
 ## What you need
 
@@ -16,15 +16,15 @@ The goal is to create a single master map in Google My Maps, split it into indiv
 
 1. Open [Google My Maps](https://www.google.com/mymaps).
 2. Create a new map.
-3. Add your territories as layers. For best results, each layer should have a `name` and `description` field.
-4. Make sure the layer contains a geometry column (usually exported as `WKT`) plus the columns `name` and `description`.
+3. Add your territories as layers. For best results, each layer should have `name` and `description` fields.
+4. Make sure each layer contains a geometry column (usually exported as `WKT`) and the `name` and `description` columns.
 
 ## Step 2 – Export each layer to CSV and upload it to Google Drive
 
 1. In Google My Maps, open the layer menu for a layer.
 2. Choose **Export to CSV**.
 3. Save the CSV file.
-4. Upload the exported CSV file(s) to a single Google Drive folder. Copy that folder's ID for the next step.
+4. Upload the exported CSV files to a single Google Drive folder. Copy that folder's ID for the next step.
 
 > **Tip:** Keep all the exported CSV files in one folder. The script will process every CSV it finds in that folder.
 
@@ -41,7 +41,7 @@ The goal is to create a single master map in Google My Maps, split it into indiv
 ### What the script does
 
 - Reads every CSV file in the source folder.
-- Splits each row into a separate CSV file named after the `name` column.
+- Splits each row into a separate CSV file named after its `name` value.
 - Places all the generated CSV files in a sub-folder called `Split Maps Output` inside the source folder.
 
 ## Step 4 – Import each split CSV back into Google My Maps
@@ -49,7 +49,7 @@ The goal is to create a single master map in Google My Maps, split it into indiv
 1. Open [Google My Maps](https://www.google.com/mymaps).
 2. Create a new map for each territory.
 3. In the new map, choose **Import** and select one of the CSV files from the `Split Maps Output` folder.
-4. Repeat for every split CSV file.
+4. Repeat for each split CSV file.
 
 ## Step 5 – Get and share the map links
 
