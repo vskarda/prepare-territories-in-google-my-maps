@@ -4,7 +4,13 @@ Step-by-step help for preparing JW congregation territories using Google My Maps
 
 ## Overview
 
-The goal is to create a single master map in Google My Maps, split it into separate CSV files for each territory, import each territory back into Google My Maps as its own map, and collect shareable links to those maps.
+Google My Maps allows you to draw a custom maps and export a link to each of these maps. A click on that link should display the custom map directly in Google Maps app.
+
+There's no theoretical limit on how many custom maps might live in your Google drive (which serves as a storage for your maps created in Google My Maps).
+
+You can create these maps one by one, without any problems.
+
+The goal of this repository is to navigate you on how to create a single master map in Google My Maps, split the shapes (territories) in it into separate CSV files and import them back creating separate territory maps.
 
 ## What you need
 
@@ -16,15 +22,14 @@ The goal is to create a single master map in Google My Maps, split it into separ
 
 1. Open [Google My Maps](https://www.google.com/mymaps).
 2. Create a new map.
-3. Add your territories as layers. For best results, each layer should have `name` and `description` fields.
-4. Make sure each layer contains a geometry column (usually exported as `WKT`) and the `name` and `description` columns.
+3. Draw your territories (you can use up to 10 layers). For best results, each territory should have `name` field.
 
 ## Step 2 – Export each layer to CSV and upload it to Google Drive
 
 1. In Google My Maps, open the layer menu for a layer.
 2. Choose **Export to CSV**.
 3. Save the CSV file.
-4. Upload the exported CSV files to a single Google Drive folder. Copy that folder's ID for the next step.
+4. Upload the exported CSV files to a single Google Drive folder. Copy that folder's ID for the next step. The folder's id is part of the url.
 
 > **Tip:** Keep all the exported CSV files in one folder. The script will process every CSV it finds in that folder.
 
@@ -55,9 +60,7 @@ The goal is to create a single master map in Google My Maps, split it into separ
 
 1. Open each territory map in Google My Maps.
 2. Click **Share** and copy the link.
-3. **Important:** In the copied link, replace `/edit` with `/viewer` before sending it out.
-   - Links ending in `/edit` allow others to change the map.
-   - Links ending in `/viewer` only let people view the map, which is usually what you want when sharing congregation territories.
+3. Recommendation: In the copied link, replace `/edit` with `/viewer` before sending it out.
 4. Save the viewer links in a list — these links are the final goal of the workflow.
 
 ## Result
